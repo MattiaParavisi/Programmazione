@@ -1,0 +1,44 @@
+func validPedone(p Pezzo, r1 byte, c1 rune, r2 byte, c2 rune) bool {
+
+	pesetino, ce := get(s, r2, c2)
+
+	fmt.Println(pesetino)
+
+	if r1 == 7 && p.colore == NERO {
+		if (r2 == r1-2 || r2 == r1-1) && c1 == c2 {
+			fmt.Println("entro nero")
+			return true
+		}
+
+	}
+
+	if r1 == 2 && p.colore == BIANCO {
+		if (r2 == r1+2 || r2 == r1+1) && c1 == c2 {
+			fmt.Println("entro bianco")
+			return true
+		}
+
+	}
+
+	if r1 != 2 && r1 != 7 && c1 == c2 {
+		fmt.Println("ENTRO ULTIMO")
+		if r2 == r1+1 || r2 == r1-1 {
+			return true
+		}
+
+	}
+
+	if (p.colore == NERO && pesetino.colore == BIANCO) && r2 == r1-1 && (c2 == c1+1 || c2 == c1-1) && ce == true {
+		return true
+	}
+
+	if (p.colore == BIANCO && pesetino.colore == NERO) && r2 == r1+1 && (c2 == c1+1 || c2 == c1-1) {
+		return true
+	}
+
+	return false
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+if src.tipo == PEDONE {
+				ok = validPedone(src, r1, c1, r2, c2)
+			}

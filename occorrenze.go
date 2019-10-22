@@ -1,27 +1,23 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
-func occorrenze(s, r string) int {
-	var count int
+import "strings"
 
-	if len(s) == 0 {
-		return 0
+func main(){
+	var stringa string
+	fmt.Scan(&stringa)
+	s:=strings.ToLower(stringa)
+	for c:='a'; c<='z'; c++{
+		count:=0
+		for _,i:=range s{
+			if c==i{
+				count++
+			}
+		}
+		if count!=0{
+			fmt.Println(string(c),":",count)
+		}
 	}
-
-	if strings.HasPrefix(s, string(r)) {
-		count = 1
-	}
-
-	return count + occorrenze(s[1:], r)
-}
-
-func main() {
-	var r string
-	s := "cccc"
-	fmt.Scan(&r)
-	fmt.Println(occorrenze(s, r))
+	
 }
